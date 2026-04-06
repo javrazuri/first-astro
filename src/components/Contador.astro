@@ -1,0 +1,28 @@
+---
+// Parte 1: El "Cerebro" (Astro Frontmatter)
+const { titulo = "Contador de Cafés ☕" } = Astro.props;
+---
+
+<div class="bg-blue-100 p-6 rounded-2xl border border-slate-700 shadow-xl text-center max-w-xs mt-8">
+  <h2 class="text-xl font-bold text-white mb-4">{titulo}</h2>
+  
+  <div id="marcador" class="text-5xl font-black text-sky-400 mb-6">0</div>
+
+  <button 
+    id="btn-sumar"
+    class="bg-sky-600 hover:bg-sky-500 active:scale-95 text-white font-bold py-2 px-6 rounded-lg transition-all"
+  >
+    ¡Beber uno!
+  </button>
+</div>
+
+<script>
+  let cuenta = 0;
+  const marcador = document.getElementById('marcador');
+  const boton = document.getElementById('btn-sumar');
+
+  boton?.addEventListener('click', () => {
+    cuenta++;
+    if (marcador) marcador.innerText = cuenta.toString();
+  });
+</script>
